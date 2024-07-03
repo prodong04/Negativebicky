@@ -1,0 +1,43 @@
+.inputBoxContainer {
+    width: 600px;
+    height: 300px;
+    background-color: grey;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputField {
+    border-radius: 10px;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    outline: none;
+}
+
+.resultContainer {
+    margin: 10px auto;
+    width: 70%;
+    height: 30%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+}
