@@ -1,15 +1,16 @@
-// src/App.js
 import React from 'react';
-import './App.css';
 import Header from './components/Header';
+import InputBox from './components/InputBox.js';
+import BuyMeACoffee from './components/BuyMeACoffee.js';
 
 function App() {
-  return (
-    <div>
-      <Header />
-      {/* 추가 컴포넌트 */}
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <InputBox />
+            <BuyMeACoffee />
+        </div>
+    );
 }
 
 export default App;
