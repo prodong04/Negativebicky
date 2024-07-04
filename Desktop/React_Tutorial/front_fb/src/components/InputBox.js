@@ -9,23 +9,12 @@ function InputBox() {
     const [transformedText, setTransformedText] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const activeButton = () => {
-        alert(`${inputText} 입력 완료`);
-      }
-    const activeEnter = (e) => {
-        if(e.key === "Enter") {
-          activeButton();
-        }
-      }
-    
-
-    const handleInputChange = (event) => setInputText(event.target.value);
-
     const handleSubmit = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/process-text', { inputText });
-            setTransformedText(response.data.transformedText);
+            // FastAPI 서버에 POST 요청을 보냅니다.
+            const response = await axios.get(`http://localhost:8000/process/`, {params: {query: inputText}});
+            setTransformedText(response.data.answer);
         } catch (error) {
             console.error('Error fetching transformed text:', error);
         }
@@ -37,9 +26,9 @@ function InputBox() {
             <input
                 type="text"
                 value={inputText}
-                onChange={handleInputChange}
+                onChange={(e) => setInputText(e.target.value)}
                 className="inputField"
-                onKeyDown={(e) => activeEnter(e)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
             />
             <button onClick={handleSubmit} className="submitButton">Press</button>
             <div className="resultContainer">
